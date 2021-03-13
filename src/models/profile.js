@@ -1,29 +1,29 @@
 import Sequelize from "sequelize";
-import { sequelize } from '../database/dbConnection';
+import { sequelize } from '../database/dbConnectio';
 
-const Task = sequelize.define('task', {
-    idMetas:{
+
+const Profile = sequelize.define('profile', {
+    idPerfil:{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    titulo: {
+    Nombre: {
         type: Sequelize.TEXT
     },
-    descripcion:{
+    Apellido:{
         type: Sequelize.TEXT
     },
-    progreso:{
+    Correo_electronico:{
         type: Sequelize.INTEGER
     },
-    estado:{
+    foto_de_perfil:{
         type: Sequelize.TEXT
     },
-    listadodeMetas_idLista_de_metas:{
+    Numero_de_telefono:{
         type: Sequelize.INTEGER
     }
 },{
     timestamps: false
 });
 
-
-export default Task;
+export default Profile;

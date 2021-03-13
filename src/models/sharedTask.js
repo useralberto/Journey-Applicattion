@@ -2,22 +2,22 @@ import Sequelize from "sequelize";
 import { sequelize } from '../database/dbConnectio';
 
 
-const User = sequelize.define('user', {
-    idUsuario:{
+const SharedTask = sequelize.define('sharedTask', {
+    idListaMetas:{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    usuario: {
-        type: Sequelize.TEXT
+    compartida_con: {
+        type: Sequelize.INTEGER
     },
-    contrasena:{
-        type: Sequelize.TEXT
+    Usuario_idUsuario:{
+        type: Sequelize.INTEGER
     },
-    perfil_idPerfil:{
+    Metas_idMetas:{
         type: Sequelize.INTEGER
     }
 },{
     timestamps: false
 });
 
-export default User;
+export default SharedTask;

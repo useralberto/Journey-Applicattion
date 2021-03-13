@@ -2,22 +2,16 @@ import Sequelize from "sequelize";
 import { sequelize } from '../database/dbConnectio';
 
 
-const User = sequelize.define('user', {
-    idUsuario:{
+const ListTask = sequelize.define('listTask', {
+    idLista_de_metas:{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    usuario: {
-        type: Sequelize.TEXT
-    },
-    contrasena:{
-        type: Sequelize.TEXT
-    },
-    perfil_idPerfil:{
+    Usuario_idUsuario: {
         type: Sequelize.INTEGER
     }
 },{
     timestamps: false
 });
 
-export default User;
+export default ListTask;
