@@ -1,4 +1,4 @@
-import server from './server';
+import server from './confServer.js';
 import "@babel/polyfill";
 
 async function init(){

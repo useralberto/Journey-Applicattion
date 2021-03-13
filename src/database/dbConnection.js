@@ -6,7 +6,7 @@ export const sequelize = new Sequelize(
 	'oNsKfxNiUZ9AwpfLf499',
 	{
 		host: 'bydprqfpjzbjwbk1466e-postgresql.services.clever-cloud.com',
-		dialect: 'postgresql'
+		dialect: 'postgresql',
 		pool: {
       max: 5,
       min: 0,

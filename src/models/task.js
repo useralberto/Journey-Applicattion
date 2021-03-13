@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-import { sequelize } from '../database/dbConnection';
+import { sequelize } from '../database/dbConnection.js';
 
 const Task = sequelize.define('task', {
     idMetas:{

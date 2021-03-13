@@ -1,16 +1,16 @@
 import { Router } from "express";
+
 const router = Router;
 
+//Import of actions from each url.
 import {
-	createTask, getTaskAll,
-	getTask,deleteTask,updateTask, getTaskByUser
-} from '../controller/task.controller';
+	createUser, getUserAll, getUser, 
+	deleteUser, updateUser 
+} from "../controller/user.controller.js";
 
-router.post('/create/', createTask);
-router.get('/', getTaskAll);
+router.post('/create/', createUser);
+router.get('/', getUserAll);
 
-router.get('/get/:id', getTask);
-router.delete('/delete/:id', deleteTask);
-router.put('/update/:id', updateTask);
-
-router.get('/task/user/:userid', getTaskByUser);
+router.get('/get/:id', getUser);
+router.delete('/delete/:id', deleteUser);
+router.put('/update/:id', updateUser);
