@@ -18,7 +18,7 @@ const Task = sequelize.define('task', {
     estado:{
         type: Sequelize.TEXT
     },
-    listadodeMetas_idLista_de_metas:{
+    idLista_de_metas:{
         type: Sequelize.INTEGER
     }
 },{

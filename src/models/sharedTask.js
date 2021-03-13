@@ -1,6 +1,8 @@
 import Sequelize from "sequelize";
 import { sequelize } from '../database/dbConnectio';
 
+import task from './task';
+
 
 const SharedTask = sequelize.define('sharedTask', {
     idListaMetas:{
@@ -19,5 +21,15 @@ const SharedTask = sequelize.define('sharedTask', {
 },{
     timestamps: false
 });
+
+SharedTask.hasMany(task,{
+    foreingKey: 'idLista_de_metas',
+    sourceKey: 'id'
+});
+
+task.belongsTo(SharedTask,{
+    foreingKey: 'idLista_de_metas',
+    sourceKey: 'id'
+})
 
 export default SharedTask;

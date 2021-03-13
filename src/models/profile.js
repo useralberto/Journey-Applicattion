@@ -1,6 +1,7 @@
 import Sequelize from "sequelize";
 import { sequelize } from '../database/dbConnectio';
 
+import user from './user';
 
 const Profile = sequelize.define('profile', {
     idPerfil:{
@@ -25,5 +26,15 @@ const Profile = sequelize.define('profile', {
 },{
     timestamps: false
 });
+
+Profile.hasMany(user,{
+    foreingKey: 'idPerfil',
+    sourceKey: 'id'
+});
+
+user.belongsTo(Profile,{
+    foreingKey: 'idPerfil',
+    sourceKey: 'id'
+})
 
 export default Profile;
