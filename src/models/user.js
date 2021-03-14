@@ -1,34 +1,29 @@
 import Sequelize from "sequelize";
-import { sequelize } from '../database/dbConnectio';
+import { sequelize } from '../database/dbConnection.js';
 
-import lisTask from './listTask';
+import Profile from './profile.js'; 
 
-const User = sequelize.define('user', {
+const User = sequelize.define('Usuario', {
     idUsuario:{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    usuario: {
-        type: Sequelize.TEXT
+    Usuario: {
+        type: Sequelize.STRING
     },
-    contrasena:{
-        type: Sequelize.TEXT
+    Contrasena:{
+        type: Sequelize.STRING
     },
-    idPerfil:{
+    Perfil_idPerfil:{
         type: Sequelize.INTEGER
     }
 },{
     timestamps: false
 });
 
-User.hasMany(lisTask,{
-    foreingKey: 'idUsuario',
+User.belongsTo(Profile, {
+    foreingKey: 'Perfil_idPerfil',
     sourceKey: 'id'
 });
-
-lisTask.belongsTo(User,{
-    foreingKey: 'idUsuario',
-    sourceKey: 'id'
-})
 
 export default User;

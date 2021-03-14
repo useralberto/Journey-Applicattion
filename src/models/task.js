@@ -1,29 +1,40 @@
 import Sequelize from "sequelize";
 import { sequelize } from '../database/dbConnection.js';
 
-const Task = sequelize.define('task', {
+import ListTask from './listTask.js';
+
+const Task = sequelize.define('Metas', {
     idMetas:{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    titulo: {
+    Titulo: {
         type: Sequelize.TEXT
     },
-    descripcion:{
+    Descripcion:{
         type: Sequelize.TEXT
     },
-    progreso:{
+    Progreso:{
         type: Sequelize.INTEGER
     },
-    estado:{
+    Estado:{
         type: Sequelize.TEXT
     },
-    idLista_de_metas:{
+    ListadeMetas_idLista_de_metas:{
         type: Sequelize.INTEGER
     }
 },{
     timestamps: false
 });
 
+Task.hasMany( ListTask, {
+    foreingKey: "ListadeMetas_idLista_de_metas",
+    sourceKey: "idMetas"
+} );
+
+ListTask.belongsTo(Task, {
+    foreingKey: 'ListadeMetas_idLista_de_metas',
+    sourceKey: 'idLista_de_metas'
+});
 
 export default Task;

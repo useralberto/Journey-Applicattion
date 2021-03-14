@@ -10,11 +10,11 @@ import taskRouter from './routers/task.js';
 const server = express();
 
 //Middlewares
-server.use('dev');
+server.use(morgan('dev'));
 server.use(json());
 
 //Path
 server.use('/api/user', userRouter)
-server.user('/api/task', taskRouter);
+server.use('/api/task', taskRouter);
  
 export default server;

@@ -1,10 +1,10 @@
 import Sequelize from "sequelize";
 import { sequelize } from '../database/dbConnectio';
 
-import task from './task';
+import Task from './task.js';
+import User from './user.js';
 
-
-const SharedTask = sequelize.define('sharedTask', {
+const SharedTask = sequelize.define('MetasCompartidas', {
     idListaMetas:{
         type: Sequelize.INTEGER,
         primaryKey: true
@@ -22,14 +22,19 @@ const SharedTask = sequelize.define('sharedTask', {
     timestamps: false
 });
 
-SharedTask.hasMany(task,{
-    foreingKey: 'idLista_de_metas',
+SharedTask.hasMany(User,{
+    foreingKey: 'Usuario_idUsuario',
     sourceKey: 'id'
 });
 
-task.belongsTo(SharedTask,{
-    foreingKey: 'idLista_de_metas',
+user.belongsTo(SharedTask,{
+    foreingKey: 'Usuario_idUsuario',
     sourceKey: 'id'
-})
+});
+
+Task.belongsTo(sharedTask, {
+    'Metas_idMetas',
+    sourceKey: 'id'
+});
 
 export default SharedTask;

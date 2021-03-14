@@ -1,21 +1,19 @@
 import Sequelize from "sequelize";
-import { sequelize } from '../database/dbConnectio';
+import { sequelize } from '../database/dbConnection.js';
 
-import user from './user';
-
-const Profile = sequelize.define('profile', {
+const Profile = sequelize.define('Perfil', {
     idPerfil:{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
     Nombre: {
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
     },
     Apellido:{
-        type: Sequelize.TEXT
+        type: Sequelize.STRING
     },
     Correo_electronico:{
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
     },
     foto_de_perfil:{
         type: Sequelize.TEXT
@@ -26,15 +24,5 @@ const Profile = sequelize.define('profile', {
 },{
     timestamps: false
 });
-
-Profile.hasMany(user,{
-    foreingKey: 'idPerfil',
-    sourceKey: 'id'
-});
-
-user.belongsTo(Profile,{
-    foreingKey: 'idPerfil',
-    sourceKey: 'id'
-})
 
 export default Profile;

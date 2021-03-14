@@ -1,6 +1,6 @@
-import { Router } from "express";
+import { Router as expressRouter } from 'express';
 
-const router = Router;
+const router = expressRouter();
 
 //Import of actions from each url.
 import {
@@ -14,3 +14,5 @@ router.get('/', getUserAll);
 router.get('/get/:id', getUser);
 router.delete('/delete/:id', deleteUser);
 router.put('/update/:id', updateUser);
+
+export default router;

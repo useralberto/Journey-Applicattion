@@ -1,6 +1,6 @@
-import { Router } from "express";
+import { Router as expressRouter } from 'express';
 
-const router = Router;
+const router = expressRouter();
 
 import {
 	createTask, getTaskAll,
@@ -15,3 +15,6 @@ router.delete('/delete/:id', deleteTask);
 router.put('/update/:id', updateTask);
 
 router.get('/task/user/:userid', getTaskByUser);
+
+
+export default router; 
